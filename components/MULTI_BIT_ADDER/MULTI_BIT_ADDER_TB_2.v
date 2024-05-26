@@ -1,9 +1,9 @@
-//16-BIT ADDER TESTBENCH
+//16-BIT ADDER TESTBENCH 2 (CARRY TEST)
 
 `timescale 1ns/1ps
 `include "MULTI_BIT_ADDER.v"
 
-module MULTI_BIT_ADDER_TB();
+module MULTI_BIT_ADDER_TB_2();
 
     reg [7:0] A_TB;
     reg [7:0] B_TB;
@@ -19,12 +19,12 @@ module MULTI_BIT_ADDER_TB();
 
         begin
             
-            $dumpfile("MULTI_BIT_ADDER_TB.vcd");
-            $dumpvars(0, MULTI_BIT_ADDER_TB);
+            $dumpfile("MULTI_BIT_ADDER_TB_2.vcd");
+            $dumpvars(0, MULTI_BIT_ADDER_TB_2);
 
-            for (i = 0; i < 32; i = i + 1) begin
+            for (i = 200; i < 256; i = i + 1) begin
 
-                for (j = 0; j < 32; j = j + 1) begin
+                for (j = 0; j < 64; j = j + 1) begin
 
                         A_TB = i;
                         B_TB = j;
