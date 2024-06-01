@@ -1,9 +1,9 @@
-//ARITHMETIC UNIT
+//ARITHMETIC AND LOGIC UNIT
 
 `timescale 1ns/1ps
 `include "components.v"
 
-module ALU(
+module alua(
     
     output wire [7:0] Result,
 	output wire [3:0] NZVC, //Flags: Negative, Zero, Overflow, Carry
@@ -19,7 +19,8 @@ module ALU(
     AU AU1 (auNZVC[0], auResult, A, B, {ALU_Sel[1], ALU_Sel[0]});
     LU LU1 (luResult, A, B, {ALU_Sel[1], ALU_Sel[0]});
 
-    AND AND0 (auNZVC[0], luResult[0], 1'b0);
+    AND AND0 (luNZVC[0], luResult[0], 1'b0);
+    AND AND1 (luNZVC[1], luResult[0], 1'b0);
 
     EQUAL_ZERO EQ1 (auNZVC[2], auResult);
     EQUAL_ZERO EQ2 (luNZVC[2], luResult);

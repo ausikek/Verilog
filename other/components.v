@@ -5,10 +5,7 @@ Simultaneous imports of the base gates and components give include errors. This 
 */
 
 `timescale 1ns/1ps
-`include "and8.v"
-`include "or8.v"
-`include "xor8.v"
-`include "not8.v"
+`include "8bitgates.v"
 
 /*-----------------------------------------------ARITHMETIC COMPONENTS-----------------------------------------------*/
 

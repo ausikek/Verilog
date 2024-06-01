@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
-`include "alub.v"
 `include "alua.v"
+`include "alub.v"
 
 module comp_tb;
 
