@@ -230,9 +230,9 @@ module MUX4_1 (
     NOT NOT1 (nS1, S[1]);
 
     AND AND0 (N0, nS0, nS1);
-    AND AND1 (N1, S0, nS1);
-    AND AND2 (N2, nS0, S1);
-    AND AND3 (N3, S0, S1);
+    AND AND1 (N1, S[0], nS1);
+    AND AND2 (N2, nS0, S[1]);
+    AND AND3 (N3, S[0], S[1]);
 
     AND AND4 (M0[0], A[0], N0);
     AND AND5 (M0[1], A[1], N0);
@@ -295,9 +295,9 @@ module MUX4_1_classic (
     NOT NOT1 (nS1, S[1]);
 
     AND AND0 (N0, nS0, nS1);
-    AND AND1 (N1, S0, nS1);
-    AND AND2 (N2, nS0, S1);
-    AND AND3 (N3, S0, S1);
+    AND AND1 (N1, S[0], nS1);
+    AND AND2 (N2, nS0, S[1]);
+    AND AND3 (N3, S[0], S[1]);
 
     AND AND4 (M0, A, N0);
     AND AND5 (M1, B, N1);
@@ -323,18 +323,20 @@ module AU(
     );
 
     wire [7:0] Sum, Increment, Subtraction, Decrement;
-    wire sumCarry, incCarry, subCarry, decCarry;
+    wire sumCarry, incCarry, subCarry, nsubCarry, ndecCarry, decCarry;
     wire [7:0] nB;
 
     NOT8 NOT0 (nB, B);
+    NOT NOT1 (nsubCarry, subCarry);
+    NOT NOT2 (ndecCarry, decCarry);
 
     RIPPLECARRY RC0 (sumCarry, Sum, A, B, 1'b0);
     RIPPLECARRY RC1 (incCarry, Increment, A, 8'b00000001, 1'b0);
-    RIPPLECARRY RC2 (subCarry, Subtraction, A, nB, 1'b0);
+    RIPPLECARRY RC2 (subCarry, Subtraction, A, nB, 1'b1);
     RIPPLECARRY RC3 (decCarry, Decrement, A, 8'b11111111, 1'b0);
 
     MUX4_1 MUX0 (Result, Control, Sum, Increment, Subtraction, Decrement);
-    MUX4_1_classic MUX1 (Carry, Control, sumCarry, incCarry, subCarry, decCarry);
+    MUX4_1_classic MUX1 (Carry, Control, sumCarry, incCarry, nsubCarry, ndecCarry);
 
 endmodule
 
