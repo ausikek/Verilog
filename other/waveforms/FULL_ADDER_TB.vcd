@@ -1,0 +1,174 @@
+$date
+	Sun Jun  2 17:58:20 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module FULL_ADDER_TB $end
+$var wire 1 ! L_TB $end
+$var wire 1 " H_TB $end
+$var reg 1 # A_TB $end
+$var reg 1 $ B_TB $end
+$var reg 1 % C_TB $end
+$scope module DUT $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % Cin $end
+$var wire 1 ! Sum $end
+$var wire 1 & S1 $end
+$var wire 1 " Carry $end
+$var wire 1 ' C2 $end
+$var wire 1 ( C1 $end
+$scope module HA1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 & Sum $end
+$var wire 1 ( Carry $end
+$scope module AND1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ( F $end
+$var wire 1 ) X $end
+$upscope $end
+$scope module XOR1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 & F $end
+$var wire 1 * X $end
+$var wire 1 + Y $end
+$var wire 1 , Z $end
+$upscope $end
+$upscope $end
+$scope module HA2 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ! Sum $end
+$var wire 1 ' Carry $end
+$scope module AND1 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ' F $end
+$var wire 1 - X $end
+$upscope $end
+$scope module XOR1 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ! F $end
+$var wire 1 . X $end
+$var wire 1 / Y $end
+$var wire 1 0 Z $end
+$upscope $end
+$upscope $end
+$scope module OR1 $end
+$var wire 1 ( A $end
+$var wire 1 ' B $end
+$var wire 1 " F $end
+$var wire 1 1 X $end
+$var wire 1 2 Y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+12
+11
+10
+1/
+1.
+1-
+1,
+1+
+1*
+1)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+00
+1%
+#20000
+0/
+1!
+1&
+10
+0,
+0%
+1$
+#30000
+1"
+02
+0!
+1'
+1/
+0-
+0.
+10
+1%
+#40000
+0"
+12
+1!
+0'
+0/
+1-
+1.
+1,
+0+
+0%
+0$
+1#
+#50000
+1"
+02
+0!
+1'
+1/
+0-
+0.
+10
+1%
+#60000
+12
+0!
+01
+0&
+0'
+1/
+1(
+1+
+1-
+1.
+0)
+0*
+1,
+0%
+1$
+#70000
+1!
+00
+1%
+#80000
+0"
+11
+0!
+0(
+10
+1)
+1*
+0%
+0$
+0#

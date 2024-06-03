@@ -1,0 +1,155 @@
+$date
+	Sun Jun  2 18:03:11 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module OVA_TB $end
+$var wire 1 ! F_TB $end
+$var reg 1 " A_TB $end
+$var reg 1 # B_TB $end
+$var reg 1 $ R_TB $end
+$scope module DUT $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 $ R $end
+$var wire 1 % nR $end
+$var wire 1 & nB $end
+$var wire 1 ' nA $end
+$var wire 1 ( aux2 $end
+$var wire 1 ) aux1 $end
+$var wire 1 * andnAB $end
+$var wire 1 + andAB $end
+$var wire 1 ! F $end
+$scope module AND0 $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 + F $end
+$var wire 1 , X $end
+$upscope $end
+$scope module AND1 $end
+$var wire 1 * F $end
+$var wire 1 - X $end
+$var wire 1 & B $end
+$var wire 1 ' A $end
+$upscope $end
+$scope module AND2 $end
+$var wire 1 + A $end
+$var wire 1 ) F $end
+$var wire 1 . X $end
+$var wire 1 % B $end
+$upscope $end
+$scope module AND3 $end
+$var wire 1 * A $end
+$var wire 1 $ B $end
+$var wire 1 ( F $end
+$var wire 1 / X $end
+$upscope $end
+$scope module NOT0 $end
+$var wire 1 " A $end
+$var wire 1 ' F $end
+$upscope $end
+$scope module NOT1 $end
+$var wire 1 # A $end
+$var wire 1 & F $end
+$upscope $end
+$scope module NOT2 $end
+$var wire 1 $ A $end
+$var wire 1 % F $end
+$upscope $end
+$scope module OR0 $end
+$var wire 1 ) A $end
+$var wire 1 ( B $end
+$var wire 1 ! F $end
+$var wire 1 0 X $end
+$var wire 1 1 Y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+11
+10
+1/
+1.
+0-
+1,
+0+
+1*
+0)
+0(
+1'
+1&
+1%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+01
+1(
+0/
+0%
+1$
+#20000
+0!
+11
+0*
+0(
+1-
+1/
+1%
+0&
+0$
+1#
+#30000
+0%
+1$
+#40000
+1%
+1&
+0'
+0$
+0#
+1"
+#50000
+0%
+1$
+#60000
+1!
+00
+1)
+0.
+1+
+1%
+0,
+0&
+0$
+1#
+#70000
+0!
+10
+0)
+1.
+0%
+1$
+#80000
+1*
+0+
+0-
+1%
+1&
+1,
+1'
+0$
+0#
+0"

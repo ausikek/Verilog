@@ -1,0 +1,93 @@
+$date
+	Sun Jun  2 18:01:57 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module MUX_21C_TB $end
+$var wire 1 ! F_TB $end
+$var reg 1 " A_TB $end
+$var reg 1 # B_TB $end
+$var reg 1 $ S_TB $end
+$scope module DUT $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 $ S $end
+$var wire 1 % wB $end
+$var wire 1 & wA $end
+$var wire 1 ' nS $end
+$var wire 1 ! F $end
+$scope module AND0 $end
+$var wire 1 " A $end
+$var wire 1 & F $end
+$var wire 1 ( X $end
+$var wire 1 ' B $end
+$upscope $end
+$scope module AND1 $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % F $end
+$var wire 1 ) X $end
+$upscope $end
+$scope module NOT0 $end
+$var wire 1 $ A $end
+$var wire 1 ' F $end
+$upscope $end
+$scope module OR0 $end
+$var wire 1 & A $end
+$var wire 1 % B $end
+$var wire 1 ! F $end
+$var wire 1 * X $end
+$var wire 1 + Y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1+
+1*
+1)
+1(
+1'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+0*
+1&
+0(
+1"
+#20000
+0!
+1*
+0&
+1(
+0'
+1$
+#30000
+1!
+0+
+1%
+0)
+1#
+#40000
+0!
+1+
+0%
+1)
+1'
+0#
+0"
+0$
