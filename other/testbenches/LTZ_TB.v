@@ -19,7 +19,7 @@ module LESS_ZERO_TB();
             $dumpfile("LESS_ZERO_TB.vcd");
             $dumpvars(0, LESS_ZERO_TB);
 
-            for (i = 0; i < 100; i = i + 1) begin
+            for (i = -5; i < 100; i = i + 1) begin
 
                 A_TB = i;
 
