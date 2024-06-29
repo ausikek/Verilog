@@ -19,7 +19,6 @@ module AND(
 
 endmodule
 
-
 //OR GATE
 
 module OR(
@@ -76,10 +75,7 @@ module NOT(
 
 endmodule
 
-
 //8 BIT GATES
-
-`timescale 1ns/1ps
 
 //AND GATE
 
@@ -101,7 +97,6 @@ module AND8 (
 
 endmodule
 
-
 //OR GATE
 
 module OR8 (
@@ -122,7 +117,6 @@ module OR8 (
     
 endmodule
 
-
 //XOR GATE
 
 module XOR8 (
@@ -142,7 +136,6 @@ module XOR8 (
     XOR XOR7 (F[7], A[7], B[7]);
 
 endmodule
-
 
 //NOT GATE
 

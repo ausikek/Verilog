@@ -1,5 +1,5 @@
 /*
-Components File:
+Combinational Components File:
 Created because of the need to have a file that contains all the components used in the design.
 Simultaneous imports of the base gates and components give include errors. This file is used to import all the components in one go.
 */
