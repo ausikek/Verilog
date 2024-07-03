@@ -78,32 +78,32 @@ module fsm_traffic (
                 
                 if (car) 
                     
-                    next_state = S1;
+                    next_state <= S1;
                 
                 else begin
                     
-                    next_state = S0;
-                    timeout = 0;
+                    next_state <= S0;
+                    timeout <= 0;
 
                 end
             
             end
             
-            S1: next_state = S2;
+            S1: next_state <= S2;
             
             S2: begin
                 
                 if (timeout)
                     
-                    next_state = S0;
+                    next_state <= S0;
                 
                 else
                     
-                    next_state = S2;
+                    next_state <= S2;
             
             end
             
-            default: next_state = S0;
+            default: next_state <= S0;
         
         endcase
 
