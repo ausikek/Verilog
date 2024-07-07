@@ -3,6 +3,32 @@
 `timescale 1ns/1ps
 `include "combinational.v"
 
+
+module dflipflop (output reg Q,Qn, 
+                  input wire clk, res, EN, D);
+  
+  always @ (posedge clk or negedge res or negedge EN)
+  	begin
+	  	if (!res)
+  			begin
+  				Q <= 1'b0;
+  				Qn <= 1'b1;
+  			end
+  		else if (!EN)
+  			begin
+  				Q <= 1'b1;
+  				Qn <= 1'b0;
+  			end
+  		else
+  			begin
+  				Q <= D;
+  				Qn <= ~D;
+  			end
+    end
+
+endmodule
+
+
 module reg8a (
         
     output wire [7:0] Reg_Out,

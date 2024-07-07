@@ -1,7 +1,7 @@
 // 8-BIT COUNTER
 
 `timescale 1ns/1ps
-`include "combinational.v"
+`include "reg8a.v"
 
 module count8a (
     

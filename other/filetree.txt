@@ -1,0 +1,54 @@
+.
+├── combinational.v
+├── count8a.v
+├── filetree.txt
+├── fsm
+│   ├── count8fsm.v
+│   └── fsm_traffic.v
+├── gates.v
+├── reg8a.v
+├── sequential.v
+├── testbenches
+│   ├── ALU_TB.v
+│   ├── AND8_TB.v
+│   ├── AU_TB.v
+│   ├── EQZ_TB.v
+│   ├── FSM_TRAFFIC_TB.v
+│   ├── FULLADDER_TB.v
+│   ├── HALFADDER_TB.v
+│   ├── LTZ_TB.v
+│   ├── LU_TB.v
+│   ├── MUX_21C_TB.v
+│   ├── MUX_21_TB.v
+│   ├── MUX_41C_TB.v
+│   ├── MUX_41_TB.v
+│   ├── NOT8_TB.v
+│   ├── OR8_TB.v
+│   ├── OVA_TB.v
+│   ├── OVS_TB.v
+│   ├── RIPPLECARRY_TB.v
+│   └── XOR8_TB.v
+└── waveforms
+    ├── ALU_TB.vcd
+    ├── AND8_TB.vcd
+    ├── AU_TB.vcd
+    ├── COUNT_TB.vcd
+    ├── EQUAL_ZERO_TB.vcd
+    ├── FSM_TRAFFIC_TB.vcd
+    ├── FULL_ADDER_TB.vcd
+    ├── HALF_ADDER_TB.vcd
+    ├── LESS_ZERO_TB.vcd
+    ├── LU_TB.vcd
+    ├── MUX_21C_TB.vcd
+    ├── MUX2_1_TB.vcd
+    ├── MUX_41C_TB.vcd
+    ├── MUX4_1_TB.vcd
+    ├── NOT8_TB.vcd
+    ├── OR8_TB.vcd
+    ├── OVA_TB.vcd
+    ├── OVS_TB.vcd
+    ├── REG_TB.vcd
+    ├── RIPPLECARRY_TB.vcd
+    └── XOR8_TB.vcd
+
+4 directories, 48 files
