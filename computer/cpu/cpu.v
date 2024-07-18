@@ -1,11 +1,11 @@
-`include "control_unit/control_unit.v"
-`include "data_path/data_path.v"
+`include "./cpu/control_unit/control_unit.v"
+`include "./cpu/data_path/data_path.v"
 
 module cpu(
 
-    output reg [7:0] address,
-    output reg [7:0] to_memory,
-    output reg write,
+    output wire [7:0] address,
+    output wire [7:0] to_memory,
+    output wire write,
     input wire [7:0] from_memory,
     input wire clk, reset
 

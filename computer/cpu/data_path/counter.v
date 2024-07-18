@@ -11,7 +11,7 @@ module counter(
   always @ (posedge clk)
   	
     begin: COUNTER	  	
-        if (reset)
+        if (!reset)
             CNT <= 8'b0;
         else
             if (load)

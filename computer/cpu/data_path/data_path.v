@@ -1,13 +1,13 @@
-`include "alu.v"
-`include "register.v"
-`include "counter.v"
+`include "./cpu/data_path/alu.v"
+`include "./cpu/data_path/register.v"
+`include "./cpu/data_path/counter.v"
 
 module data_path(
 	
 	output reg [7:0] address,
 	output reg [7:0] to_memory,
-	output reg [7:0] IR_out,
-	output reg [3:0] CCR_Result, 
+	output wire [7:0] IR_out,
+	output wire [3:0] CCR_Result, 
 	input wire [7:0] from_memory,
 	input wire [2:0] ALU_Sel,
 	input wire [1:0] Bus1_Sel, Bus2_Sel,
@@ -16,7 +16,7 @@ module data_path(
 	
 	);
 	
-	wire [7:0] Bus1, Bus2;
+	reg [7:0] Bus1, Bus2;
 	wire [7:0] PC, MAR, A, B, ALU_Result;
 	wire [3:0] NZVC;
 	
@@ -46,7 +46,7 @@ module data_path(
 		address = MAR; 
 	end
 
-	counter PC(
+	counter PC0(
 		
 		.CNT(PC),
 		.clk(clk),
@@ -57,7 +57,7 @@ module data_path(
 	
 	);
 
-	register MAR(
+	register MAR0(
 		
 		.Reg_Out(MAR),
 		.clk(clk),
@@ -67,7 +67,7 @@ module data_path(
 	
 	);
 
-	register IR(
+	register IR0(
 		
 		.Reg_Out(IR_out),
 		.clk(clk),
@@ -97,7 +97,7 @@ module data_path(
 	
 	);
 
-	alu ALU(
+	alu ALU0(
 		
 		.A(B),
 		.B(Bus1),
@@ -107,7 +107,7 @@ module data_path(
 	
 	);
 
-	register CCR(
+	register CCR0(
 		
 		.Reg_Out(CCR_Result),
 		.clk(clk),

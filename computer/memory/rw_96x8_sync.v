@@ -9,6 +9,7 @@ module rw_96x8_sync(
 	);
 	
 	reg[7:0] RW[128:223];
+	reg EN;
 	
 	always @ (address) 
 	begin

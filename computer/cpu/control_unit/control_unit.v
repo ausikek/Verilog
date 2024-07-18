@@ -15,6 +15,35 @@ module control_unit(
 	);
              
   	reg [7:0] current_state, next_state;
+
+	parameter LDA_IMM = 8'h86; // Load Register A (Immediate Addressing)
+	parameter LDA_DIR = 8'h87; // Load Register A from memory (RAM or IO) (Direct Addressing)
+	parameter LDB_IMM = 8'h88; // Load Register B (Immediate Addressing)
+	parameter LDB_DIR = 8'h89; // Load Register B from memory (RAM or IO) (Direct Addressing)
+	parameter STA_DIR = 8'h96; // Store Register A to memory (RAM or IO)
+	parameter STB_DIR = 8'h97; // Store Register B to memory (RAM or IO)
+	
+	parameter ADD_AB  = 8'h42; // A <= A + B
+	parameter SUB_AB  = 8'h43; // A <= A - B
+	parameter AND_AB  = 8'h44; // A <= A & B
+	parameter OR_AB   = 8'h45; // A <= A | B
+	parameter INCA    = 8'h46; // A <= A + 1
+	parameter INCB    = 8'h47; // B <= B + 1
+	parameter DECA	  = 8'h48; // A <= A - 1
+	parameter DECB    = 8'h49; // B <= B - 1
+	parameter XOR_AB  = 8'h4A; // A <= A ^ B
+	parameter NOTA	  = 8'h4B; // A <= ~A
+	parameter NOTB    = 8'h4C; // B <= ~B
+	
+	parameter BRA     = 8'h20; // Branch Always    to (ROM) Address
+	parameter BMI     = 8'h21; // Branch if N == 1 to (ROM) Address
+	parameter BPL     = 8'h22; // Branch if N == 0 to (ROM) Address
+	parameter BEQ     = 8'h23; // Branch if Z == 1 to (ROM) Address
+	parameter BNE	  = 8'h24; // Branch if Z == 0 to (ROM) Address
+	parameter BVS	  = 8'h25; // Branch if V == 1 to (ROM) Address 
+	parameter BVC     = 8'h26; // Branch if V == 0 to (ROM) Address
+	parameter BCS     = 8'h27; // Branch if C == 1 to (ROM) Address
+	parameter BCC     = 8'h28; // Branch if C == 0 to (ROM) Address
   	
 	parameter S0_FETCH =    0,  //-- Opcode fetch states
               S1_FETCH =    1,
@@ -120,8 +149,8 @@ module control_unit(
 
 			  S4_BCC    = 75, //-- BCC execute states
 			  S5_BCC    = 76,
-			  S6_BCC    = 77;
-			  S7_BCC    = 78,
+			  S6_BCC    = 77,
+			  S7_BCC    = 78;
             
   	initial
   		begin
@@ -148,13 +177,13 @@ module control_unit(
   				current_state <= next_state;
   		end
   	
-  	always @ (current_state or Press)
+  	always @ (current_state)
   		begin: NEXT_STATE_LOGIC
 			case (current_state)
   				
 				S0_FETCH : next_state = S1_FETCH;
   				S1_FETCH : next_state = S2_FETCH;
-  				S2_FETCH : next_state = S3_DECODE
+  				S2_FETCH : next_state = S3_DECODE;
   				
   				S3_DECODE :  if (IR == LDA_IMM) next_state = S4_LDA_IMM;
   						else if (IR == LDA_DIR) next_state = S4_LDA_DIR;
@@ -389,23 +418,8 @@ module control_unit(
   							Bus2_Sel = 2'b01; // ALU, Bus1, from_memory
  							write = 0;
 						end
-
+					
 					S1_FETCH : 
-  						begin // Load Opcode from memory into IR 
-  							IR_Load = 1;
-							MAR_Load = 0;
-							PC_Load = 0;
-							PC_Inc = 0;
- 							A_Load = 0;
-							B_Load = 0;
- 							ALU_Sel = 3'b000;
- 							CCR_Load = 0;
- 							Bus1_Sel = 2'b00; // PC, A, B
-  							Bus2_Sel = 2'b10; // ALU, Bus1, from_memory
- 							write = 0;
-						end
-						
-					S2_FETCH : 
   						begin // Increment PC 
   							IR_Load = 0;
 							MAR_Load = 1;
@@ -417,6 +431,21 @@ module control_unit(
  							CCR_Load = 0;
  							Bus1_Sel = 2'b00; // PC, A, B
   							Bus2_Sel = 2'b01; // ALU, Bus1, from_memory
+ 							write = 0;
+						end
+
+					S2_FETCH : 
+  						begin // Load Opcode from memory into IR 
+  							IR_Load = 1;
+							MAR_Load = 0;
+							PC_Load = 0;
+							PC_Inc = 0;
+ 							A_Load = 0;
+							B_Load = 0;
+ 							ALU_Sel = 3'b000;
+ 							CCR_Load = 0;
+ 							Bus1_Sel = 2'b00; // PC, A, B
+  							Bus2_Sel = 2'b10; // ALU, Bus1, from_memory
  							write = 0;
 						end
 						

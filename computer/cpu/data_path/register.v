@@ -12,7 +12,7 @@ module register(
   	
     begin: REGISTER	  	
   		
-        if (reset)
+        if (!reset)
             Reg_Out <= 8'b0;
         else
             if (load)

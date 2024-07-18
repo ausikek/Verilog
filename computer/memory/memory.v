@@ -1,25 +1,25 @@
-`include "port_out8_sync.v"
-`include "rom_128x8_sync.v"
-`include "rw_96x8_sync.v"
+`include "./memory/port_out8_sync.v"
+`include "./memory/rom_128x8_sync.v"
+`include "./memory/rw_96x8_sync.v"
 
 module memory(
 	
-	output reg [7:0] port_out_00,
-	output reg [7:0] port_out_01,
-	output reg [7:0] port_out_02,
-	output reg [7:0] port_out_03,
-	output reg [7:0] port_out_04,
-	output reg [7:0] port_out_05,
-	output reg [7:0] port_out_06,
-	output reg [7:0] port_out_07,
-	output reg [7:0] port_out_08,
-	output reg [7:0] port_out_09,
-	output reg [7:0] port_out_10,
-	output reg [7:0] port_out_11,
-	output reg [7:0] port_out_12,
-	output reg [7:0] port_out_13,
-	output reg [7:0] port_out_14,
-	output reg [7:0] port_out_15,
+	output wire [7:0] port_out_00,
+	output wire [7:0] port_out_01,
+	output wire [7:0] port_out_02,
+	output wire [7:0] port_out_03,
+	output wire [7:0] port_out_04,
+	output wire [7:0] port_out_05,
+	output wire [7:0] port_out_06,
+	output wire [7:0] port_out_07,
+	output wire [7:0] port_out_08,
+	output wire [7:0] port_out_09,
+	output wire [7:0] port_out_10,
+	output wire [7:0] port_out_11,
+	output wire [7:0] port_out_12,
+	output wire [7:0] port_out_13,
+	output wire [7:0] port_out_14,
+	output wire [7:0] port_out_15,
 	output reg [7:0] data_out,
 	input wire [7:0] address,
 	input wire [7:0] data_in,
@@ -66,9 +66,9 @@ module memory(
 		else if (address == 8'hF3) 
 			data_out = port_in_03; 
 		else if (address == 8'hF4) 
-			data_out == port_in_04; 
+			data_out = port_in_04; 
 		else if (address == 8'hF5) 
-			data_out == port_in_05; 
+			data_out = port_in_05; 
 		else if (address == 8'hF6) 
 			data_out = port_in_06; 
 		else if (address == 8'hF7) 
@@ -121,7 +121,7 @@ module memory(
 
 		.data_out(rom_data_out),
 		.address(address),
-		.clk(clk),
+		.clk(clk)
 
 	);
 
@@ -131,7 +131,7 @@ module memory(
 		.address(address),
 		.data_in(data_in),
 		.WE(write),
-		.clk(clk),
+		.clk(clk)
 
 	);
 
