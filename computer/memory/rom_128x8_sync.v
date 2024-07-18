@@ -1,4 +1,5 @@
 module rom_128x8_sync(
+    
     output reg [7:0] data_out,
     input wire [7:0] address,
     input wire clk
@@ -44,14 +45,19 @@ module rom_128x8_sync(
     parameter BCC     = 8'h28; // Branch if C == 0 to (ROM) Address
     
     initial
-    begin		// You need to load your own example
-        ROM[0] = LDA_IMM; 	
-        ROM[1] = 8'hAA;		// Data
-        ROM[2] = STA_DIR;		
-        ROM[3] = 8'hE0;		// Address (Output Port 0)
-        ROM[4] = BRA;		
-        ROM[5] = 8'h00;		// Address (ROM)
-    end
+        begin
+            ROM[0] = LDA_IMM; 	
+            ROM[1] = 8'h01;
+            ROM[2] = LDB_IMM;
+            ROM[3] = 8'h00;
+            ROM[4] = STA_DIR;
+            ROM[5] = 8'hDF;
+            ROM[6] = ADD_AB;
+            ROM[7] = LDB_DIR;
+            ROM[8] = 8'hDF;
+            ROM[9] = BRA;
+            ROM[10] = 8'h04;
+        end
     
     always @ (address) 
     begin

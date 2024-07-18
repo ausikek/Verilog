@@ -53,12 +53,12 @@ module computer_tb();
             $dumpvars(0, computer_tb);
 
             clk = 0;
-            #20;
+            #40;
 
             for (i = 0; i < 120000; i = i + 1) begin
 
                 clk = ~clk;
-                #20;
+                #40;
 
             end
         

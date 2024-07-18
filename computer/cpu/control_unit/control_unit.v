@@ -606,7 +606,7 @@ module control_unit(
 							PC_Load = 0;
 							PC_Inc = 1;
  							A_Load = 0;
-							B_Load = 1;
+							B_Load = 0;
  							ALU_Sel = 3'b000;
  							CCR_Load = 0;
  							Bus1_Sel = 2'b00; // PC, A, B
@@ -619,13 +619,13 @@ module control_unit(
   							IR_Load = 0;
 							MAR_Load = 0;
 							PC_Load = 0;
-							PC_Inc = 1;
+							PC_Inc = 0;
  							A_Load = 0;
-							B_Load = 0;
+							B_Load = 1;
  							ALU_Sel = 3'b000;
  							CCR_Load = 0;
  							Bus1_Sel = 2'b00; // PC, A, B
-  							Bus2_Sel = 2'b00; // ALU, Bus1, from_memory
+  							Bus2_Sel = 2'b10; // ALU, Bus1, from_memory
  							write = 0;
 						end
 
@@ -675,7 +675,22 @@ module control_unit(
 						end
 
 					S7_LDB_DIR : 
-  						begin // Load data from memory into B
+  						begin // Wait
+  							IR_Load = 0;
+							MAR_Load = 0;
+							PC_Load = 0;
+							PC_Inc = 0;
+ 							A_Load = 0;
+							B_Load = 0;
+ 							ALU_Sel = 3'b000;
+ 							CCR_Load = 0;
+ 							Bus1_Sel = 2'b00; // PC, A, B
+  							Bus2_Sel = 2'b10; // ALU, Bus1, from_memory
+ 							write = 0;
+						end
+
+					S8_LDB_DIR :
+						begin // Load data from memory into B
   							IR_Load = 0;
 							MAR_Load = 0;
 							PC_Load = 0;
@@ -804,7 +819,7 @@ module control_unit(
 							B_Load = 0;
  							ALU_Sel = 3'b000;
  							CCR_Load = 0;
- 							Bus1_Sel = 2'b01; // PC, A, B
+ 							Bus1_Sel = 2'b10; // PC, A, B
   							Bus2_Sel = 2'b00; // ALU, Bus1, from_memory
  							write = 1;
 						end
