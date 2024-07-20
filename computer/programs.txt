@@ -1,0 +1,105 @@
+// Fibonacci
+
+ROM[0] = LDA_IMM; 	
+ROM[1] = 8'h01;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h00;
+ROM[4] = STA_DIR;
+ROM[5] = 8'hDF;
+ROM[6] = ADD_AB;
+ROM[7] = LDB_DIR;
+ROM[8] = 8'hDF;
+ROM[9] = BRA;
+ROM[10] = 8'h04;
+
+// Load A IMM, Store A in RAM, Load B DIR
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h01;
+ROM[2] = STA_DIR;
+ROM[3] = 8'hDF;
+ROM[4] = LDB_DIR;
+ROM[5] = 8'hDF;
+
+// Load A IMM, Store A in Output
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h01;
+ROM[2] = STA_DIR;
+ROM[3] = 8'hE0;
+
+// Load Output with Value from RAM and ROM
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'hAA;
+ROM[2] = STA_DIR;
+ROM[3] = 8'hDF;
+ROM[4] = LDB_DIR;
+ROM[5] = 8'hDF;
+ROM[6] = STB_DIR;
+ROM[7] = 8'hE0;
+
+// Different operations with A, B (Sum, Sub, Inc, Dec)
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h0A;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h5E;
+ROM[4] = ADD_AB;
+ROM[5] = SUB_AB;
+ROM[6] = INCA;
+ROM[7] = LDB_IMM;
+ROM[8] = 8'h5E;
+ROM[9] = INCB;
+ROM[10] = DECA;
+ROM[11] = LDB_IMM;
+ROM[12] = 8'h5E;
+ROM[13] = DECB;
+
+// Different operations with A, B (And, Or, Xor, Not)
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'hAA;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h6E;
+ROM[4] = AND_AB;
+ROM[5] = LDA_IMM;
+ROM[6] = 8'hAA;
+ROM[7] = OR_AB;
+ROM[8] = LDA_IMM;
+ROM[9] = 8'hAA;
+ROM[10] = XOR_AB;
+ROM[11] = LDA_IMM;
+ROM[12] = 8'hAA;
+ROM[13] = NOTB;
+ROM[14] = NOTA;
+
+// Branch Equal Zero
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h01;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h01;
+ROM[4] = SUB_AB;
+ROM[5] = BEQ;
+ROM[6] = 8'h00;
+
+// Branch Less Than Zero
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h00;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h01;
+ROM[4] = SUB_AB;
+ROM[5] = BMI;
+ROM[6] = 8'h00;
+
+// Branch Greater Than Zero
+
+ROM[0] = LDA_IMM;
+ROM[1] = 8'h01;
+ROM[2] = LDB_IMM;
+ROM[3] = 8'h01;
+ROM[4] = ADD_AB;
+ROM[5] = BPL;
+ROM[6] = 8'h00;

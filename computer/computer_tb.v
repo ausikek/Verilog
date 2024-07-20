@@ -55,7 +55,7 @@ module computer_tb();
             clk = 0;
             #40;
 
-            for (i = 0; i < 120000; i = i + 1) begin
+            for (i = 0; i < 1200; i = i + 1) begin
 
                 clk = ~clk;
                 #40;

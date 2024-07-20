@@ -27,10 +27,10 @@ module rom_128x8_sync(
     parameter OR_AB   = 8'h45; // A <= A | B
     parameter INCA    = 8'h46; // A <= A + 1
     parameter INCB    = 8'h47; // B <= B + 1
-    parameter DECA	   = 8'h48; // A <= A - 1
+    parameter DECA	  = 8'h48; // A <= A - 1
     parameter DECB    = 8'h49; // B <= B - 1
     parameter XOR_AB  = 8'h4A; // A <= A ^ B
-    parameter NOTA	   = 8'h4B; // A <= ~A
+    parameter NOTA	  = 8'h4B; // A <= ~A
     parameter NOTB    = 8'h4C; // B <= ~B
     
     // Branches
@@ -38,8 +38,8 @@ module rom_128x8_sync(
     parameter BMI     = 8'h21; // Branch if N == 1 to (ROM) Address
     parameter BPL     = 8'h22; // Branch if N == 0 to (ROM) Address
     parameter BEQ     = 8'h23; // Branch if Z == 1 to (ROM) Address
-    parameter BNE	   = 8'h24; // Branch if Z == 0 to (ROM) Address
-    parameter BVS	   = 8'h25; // Branch if V == 1 to (ROM) Address 
+    parameter BNE	  = 8'h24; // Branch if Z == 0 to (ROM) Address
+    parameter BVS	  = 8'h25; // Branch if V == 1 to (ROM) Address 
     parameter BVC     = 8'h26; // Branch if V == 0 to (ROM) Address
     parameter BCS     = 8'h27; // Branch if C == 1 to (ROM) Address
     parameter BCC     = 8'h28; // Branch if C == 0 to (ROM) Address
